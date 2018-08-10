@@ -19,8 +19,8 @@ public class Drums extends Instrument implements IPlay, ISell {
         return "Bum-bum-da-boom";
     }
 
-    public double calculateMarkup(){
-        return getCostPrice()*1.3;
+    public int calculateMarkup(){
+        return 0;
     }
 
 

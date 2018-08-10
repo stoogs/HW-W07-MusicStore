@@ -1,5 +1,6 @@
 import Instruments.Instrument;
 import Interfaces.ISell;
+import Inventory.Inventory;
 
 import java.util.ArrayList;
 
@@ -7,7 +8,7 @@ public class Shop {
     ArrayList<ISell> stock;
 
     public Shop() {
-        this.stock = new ArrayList<ISell>();
+        this.stock = new ArrayList<>();
     }
 
     public ArrayList<ISell> getStock() {

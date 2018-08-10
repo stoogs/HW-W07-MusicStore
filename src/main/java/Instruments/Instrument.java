@@ -3,7 +3,7 @@ package Instruments;
 public class Instrument{
     private String manufacturer;
     private int costPrice;
-    private double shopPrice;
+    private int shopPrice;
 
     public Instrument(String manufacturer, int costPrice) {
         this.manufacturer = manufacturer;
@@ -19,7 +19,7 @@ public class Instrument{
         return costPrice;
     }
 
-    public double getShopPrice() {
+    public int getShopPrice() {
         return shopPrice;
     }
 }

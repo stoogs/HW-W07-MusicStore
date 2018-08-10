@@ -85,10 +85,9 @@ public class InstrumentTest {
         shop.addToStock(drums);
         shop.addToStock(guitar);
         shop.removeStock();
-        for (ISell item: shop.stock)
+        for (ISell banana: shop.stock)
               {
-                  System.out.println(item);
-
+                  System.out.println(banana);
         }
         System.out.println();
         assertEquals(2,shop.stock.size());

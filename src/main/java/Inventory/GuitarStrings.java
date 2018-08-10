@@ -1,23 +1,24 @@
 package Inventory;
 
 import Interfaces.ISell;
+import Interfaces.IStock;
 
-public class GuitarStrings{
-    protected ISell costPrice;
-    protected ISell shopPrice;
+public class GuitarStrings extends Inventory implements ISell, IStock {
 
-    public GuitarStrings(ISell costPrice, ISell shopPrice) {
-        this.costPrice = costPrice;
-        this.shopPrice = shopPrice;
+    public GuitarStrings(String manufacturer, int costPrice) {
+        super(manufacturer, costPrice);
     }
 
-    public ISell getCostPrice() {
-        return costPrice;
+    public void addStock(){
+
     }
 
-    public ISell getShopPrice() {
-        return shopPrice;
+    public void removeStock(){
+
     }
 
-
+    @Override
+    public int calculateMarkup() {
+        return 0;
+    }
 }
