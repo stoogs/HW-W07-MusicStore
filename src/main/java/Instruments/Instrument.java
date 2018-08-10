@@ -1,4 +1,6 @@
-public class Instrument {
+package Instruments;
+
+public class Instrument{
     private String manufacturer;
     private int costPrice;
     private double shopPrice;
@@ -6,7 +8,7 @@ public class Instrument {
     public Instrument(String manufacturer, int costPrice) {
         this.manufacturer = manufacturer;
         this.costPrice = costPrice;
-        this.shopPrice = costPrice;
+        this.shopPrice = shopPrice;
     }
 
     public String getManufacturer() {
