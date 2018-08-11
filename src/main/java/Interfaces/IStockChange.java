@@ -1,10 +1,8 @@
 package Interfaces;
 
-import Inventory.Inventory;
-
-public interface ISell {
+public interface IStockChange {
     int calculateMarkup();
     //TODO look here.
-    void  addStock(ISell banana);
+    void  addStock(IStockChange banana);
     void removeStock();
 }

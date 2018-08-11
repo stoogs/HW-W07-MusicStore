@@ -1,8 +1,8 @@
 package Inventory;
 
-import Interfaces.ISell;
+import Interfaces.IStockChange;
 
-public class DrumSticks extends Inventory implements ISell {
+public class DrumSticks extends Inventory{
 //    protected int costPrice;
 //    protected int shopPrice;
 
@@ -11,21 +11,13 @@ public class DrumSticks extends Inventory implements ISell {
 //        this.shopPrice = shopPrice;
     }
 
-    public int getCostPrice() {
-        return costPrice;
-    }
+//    public int getCostPrice() {
+//        return costPrice;
+//    }
+//
+//    public int getShopPrice() {
+//        return shopPrice;
+//    }
 
-    public int getShopPrice() {
-        return shopPrice;
-    }
-    public void addStock(ISell Instrument){
-    }
 
-    public void removeStock(){
-    }
-
-    @Override
-    public int calculateMarkup() {
-        return costPrice;
-    }
 }

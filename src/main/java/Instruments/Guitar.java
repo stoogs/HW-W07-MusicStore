@@ -1,9 +1,9 @@
 package Instruments;
 
 import Interfaces.IPlay;
-import Interfaces.ISell;
+import Interfaces.IStockChange;
 
-public class Guitar extends Instrument implements IPlay,ISell {
+public class Guitar extends Instrument {
     private int numberOfStrings;
 
     public Guitar(String manufacturer, int costPrice, int numberOfStrings) {
@@ -19,11 +19,5 @@ public class Guitar extends Instrument implements IPlay,ISell {
         return "Drrriiinnnngggg";
     }
 
-    public int calculateMarkup(){
-        return getCostPrice()*2;
-    }
-    //ISell promises
-    public void addStock(ISell Instrument) { }
-    public void removeStock() { }
 
 }

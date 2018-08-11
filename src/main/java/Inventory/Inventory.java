@@ -1,6 +1,8 @@
 package Inventory;
 
-    public abstract class Inventory{
+import Interfaces.IStockChange;
+
+public abstract class Inventory implements IStockChange {
         protected String manufacturer;
         protected int costPrice;
         protected int shopPrice;
@@ -13,12 +15,18 @@ package Inventory;
         public String getManufacturer() {
             return manufacturer;
         }
-
         public int getCostPrice() {
             return costPrice;
         }
-
         public int getShopPrice() {
             return shopPrice;
         }
+
+        public int calculateMarkup() {
+            return getCostPrice()*2;
+        }
+
+        //IStockChange promises
+        public void addStock(IStockChange instrument) { }
+        public void removeStock() { }
 }
