@@ -13,8 +13,8 @@ public class Shop implements ISell {
         return stock;
     }
 
-    public void addStock(ISell instrument){
-        stock.add(instrument);
+    public void addStock(ISell inventoryOrInstrument){
+        stock.add(inventoryOrInstrument);
     }
 
     public void removeStock() {

@@ -19,13 +19,14 @@ public class InstrumentTest {
 
     @Before
     public void before() {
-        guitar = new Guitar("Les Paul",250,6);
+        guitar = new Guitar("Les Paul", 250, 6);
         drums = new Drums("Zinfandel", 1000, "Full Set");
         shop = new Shop();
         guitarStrings = new GuitarStrings("Wire Company", 10);
         drumsticks = new DrumSticks("Wire Cutter", 10);
     }
-//-------------------------GUITAR---------------------------------------------
+
+    //-------------------------GUITAR---------------------------------------------
     @Test
     public void testGuitarManufacturer() {
         assertEquals("Les Paul", guitar.getManufacturer());
@@ -33,7 +34,7 @@ public class InstrumentTest {
 
     @Test
     public void testGuitarNumberOfStrings() {
-        assertEquals(6,guitar.getNumberOfStrings());
+        assertEquals(6, guitar.getNumberOfStrings());
     }
 
     @Test
@@ -49,7 +50,7 @@ public class InstrumentTest {
 
     @Test
     public void calculateMarkup() {
-        assertEquals(500, guitar.calculateMarkup(),0);
+        assertEquals(500, guitar.calculateMarkup(), 0);
     }
 
     //------------------------------------------DRUMS-------------------------------------
@@ -80,9 +81,9 @@ public class InstrumentTest {
     }
 
     @Test
-    public void testAddToStock(){
+    public void testAddToStock() {
         shop.addStock(guitar);
-        assertEquals(1,shop.stock.size());
+        assertEquals(1, shop.stock.size());
     }
 
     @Test
@@ -91,12 +92,31 @@ public class InstrumentTest {
         shop.addStock(drums);
         shop.addStock(guitar);
         shop.removeStock();
-        for (ISell banana: shop.stock)
-              {
-                  System.out.println(banana);
+        for (ISell banana : shop.stock) {
+            System.out.println(banana);
         }
         System.out.println();
-        assertEquals(2,shop.stock.size());
+        assertEquals(2, shop.stock.size());
     }
 
+    @Test
+    public void testAddToStockInventoryItems() {
+        shop.addStock(guitarStrings);
+        assertEquals(1, shop.stock.size());
+    }
+    //TODO Why does instruments which implements ISell work
+    //TODO but inventory which doesn't implement ISell also works???
+    @Test
+    public void removeInventoryStock() {
+        shop.addStock(guitarStrings);
+        shop.addStock(drumsticks);
+        shop.addStock(guitarStrings);
+        shop.addStock(drumsticks);
+        shop.removeStock();
+        for (ISell banana : shop.stock) {
+            System.out.println(banana);
+        }
+        System.out.println();
+        assertEquals(3, shop.stock.size());
+    }
 }

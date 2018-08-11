@@ -8,7 +8,6 @@ package Inventory;
         public Inventory(String manufacturer, int costPrice) {
             this.manufacturer = manufacturer;
             this.costPrice = costPrice;
-            this.shopPrice = shopPrice;
         }
 
         public String getManufacturer() {
