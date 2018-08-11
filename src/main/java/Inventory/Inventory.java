@@ -1,9 +1,9 @@
 package Inventory;
 
-    public class Inventory{
-        private String manufacturer;
-        private int costPrice;
-        private int shopPrice;
+    public abstract class Inventory{
+        protected String manufacturer;
+        protected int costPrice;
+        protected int shopPrice;
 
         public Inventory(String manufacturer, int costPrice) {
             this.manufacturer = manufacturer;

@@ -1,10 +1,8 @@
-import Instruments.Instrument;
 import Interfaces.ISell;
-import Inventory.Inventory;
 
 import java.util.ArrayList;
 
-public class Shop {
+public class Shop implements ISell {
     ArrayList<ISell> stock;
 
     public Shop() {
@@ -15,11 +13,15 @@ public class Shop {
         return stock;
     }
 
-    public void addToStock(ISell instrument){
+    public void addStock(ISell instrument){
         stock.add(instrument);
     }
 
     public void removeStock() {
         stock.remove(0);
     }
+    public int calculateMarkup(){
+        return 0;
+    }
+
 }

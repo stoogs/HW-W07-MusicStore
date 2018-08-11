@@ -1,6 +1,8 @@
 package Instruments;
 
-public class Instrument{
+import Interfaces.IPlay;
+
+public abstract class Instrument implements IPlay  {
     private String manufacturer;
     private int costPrice;
     private int shopPrice;
@@ -22,4 +24,5 @@ public class Instrument{
     public int getShopPrice() {
         return shopPrice;
     }
+
 }

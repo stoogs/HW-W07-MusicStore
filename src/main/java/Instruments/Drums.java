@@ -15,14 +15,17 @@ public class Drums extends Instrument implements IPlay, ISell {
         return kitSize;
     }
 
-    public String play(){
+    public String play() {
         return "Bum-bum-da-boom";
     }
 
-    public int calculateMarkup(){
-        return 0;
+    public int calculateMarkup() {
+        return getCostPrice() * 2;
     }
 
+    //ISell promises
+    public void addStock(ISell Instrument) { }
+    public void removeStock() { }
 
 }
 

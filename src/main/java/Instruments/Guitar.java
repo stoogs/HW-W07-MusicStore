@@ -20,9 +20,10 @@ public class Guitar extends Instrument implements IPlay,ISell {
     }
 
     public int calculateMarkup(){
-        return 0;
+        return getCostPrice()*2;
     }
-
-
+    //ISell promises
+    public void addStock(ISell Instrument) { }
+    public void removeStock() { }
 
 }

@@ -1,15 +1,14 @@
 package Inventory;
 
 import Interfaces.ISell;
-import Interfaces.IStock;
 
-public class DrumSticks implements ISell, IStock {
-    protected int costPrice;
-    protected int shopPrice;
+public class DrumSticks extends Inventory implements ISell {
+//    protected int costPrice;
+//    protected int shopPrice;
 
-    public DrumSticks(int costPrice, int shopPrice) {
-        this.costPrice = costPrice;
-        this.shopPrice = shopPrice;
+    public DrumSticks(String manufacturer, int costPrice) {
+        super(manufacturer, costPrice);
+//        this.shopPrice = shopPrice;
     }
 
     public int getCostPrice() {
@@ -19,8 +18,7 @@ public class DrumSticks implements ISell, IStock {
     public int getShopPrice() {
         return shopPrice;
     }
-    public void addStock(){
-
+    public void addStock(ISell Instrument){
     }
 
     public void removeStock(){
