@@ -50,7 +50,7 @@ public class InstrumentTest {
 
     @Test
     public void calculateMarkup() {
-        assertEquals(500, guitar.calculateMarkup(), 0);
+        assertEquals(250, guitar.calculateMarkup(), 0);
     }
 
     //------------------------------------------DRUMS-------------------------------------
@@ -62,7 +62,7 @@ public class InstrumentTest {
     @Test
     public void canGetDrumsPrice() {
         int result = drums.calculateMarkup();
-        assertEquals(2000, result);
+        assertEquals(1000, result);
     }
 
     @Test
@@ -93,7 +93,7 @@ public class InstrumentTest {
 
     @Test
     public void calculateGuitarStringsMarkup() {
-        assertEquals(20, guitarStrings.calculateMarkup());
+        assertEquals(10, guitarStrings.calculateMarkup());
     }
    //-------------------------DRUMSTICKS------------------------------
    @Test
@@ -113,7 +113,7 @@ public class InstrumentTest {
 
     @Test
     public void calculateDrumSticksMarkup() {
-        assertEquals(20, drumSticks.calculateMarkup());
+        assertEquals(10, drumSticks.calculateMarkup());
     }
     //-------------------------SHOP STOCK TESTS------------------------------
     @Test
@@ -149,13 +149,22 @@ public class InstrumentTest {
     public void removeInventoryStock() {
         shop.addStock(guitarStrings);
         shop.addStock(drumSticks);
-        shop.addStock(guitarStrings);
-        shop.addStock(drumSticks);
+        shop.addStock(guitar);
+        shop.addStock(drums);
         shop.removeStock();
         for (IStockChange banana : shop.stock) {
             System.out.println(banana);
         }
         System.out.println();
         assertEquals(3, shop.stock.size());
+    }
+
+    @Test
+    public void testCheckProfitOfStock(){
+        shop.addStock(guitar);
+        shop.addStock(drums);
+        shop.addStock(guitarStrings);
+        shop.addStock(drumSticks);
+        shop.checkProfitOfStock();
     }
 }

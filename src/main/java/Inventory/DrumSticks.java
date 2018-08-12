@@ -2,7 +2,7 @@ package Inventory;
 
 import Interfaces.IStockChange;
 
-public class DrumSticks extends Inventory{
+public class DrumSticks extends Inventory {
 //    protected int costPrice;
 //    protected int shopPrice;
 

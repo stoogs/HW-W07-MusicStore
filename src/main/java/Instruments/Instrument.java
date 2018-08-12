@@ -16,17 +16,24 @@ public abstract class Instrument implements IPlay, IStockChange {
     public String getManufacturer() {
         return manufacturer;
     }
+
     public int getCostPrice() {
         return costPrice;
     }
+
     public int getShopPrice() {
         return shopPrice;
     }
 
-    public int calculateMarkup(){
-        return getCostPrice()*2;
+    public int calculateMarkup() {
+        System.out.println("Instrument Abstract Class");
+        return getCostPrice() * 2 - getCostPrice();
     }
+
     //IStockChange promises
-    public void addStock(IStockChange Instrument) { }
-    public void removeStock() { }
+    public void addStock(IStockChange Instrument) {
+    }
+
+    public void removeStock() {
+    }
 }
