@@ -3,6 +3,8 @@ package Instruments;
 import Interfaces.IPlay;
 import Interfaces.IStockChange;
 
+import java.util.Collections;
+
 public abstract class Instrument implements IPlay, IStockChange {
     private String manufacturer;
     private int costPrice;
@@ -42,4 +44,5 @@ public abstract class Instrument implements IPlay, IStockChange {
 
     public void removeStock() {
     }
+
 }

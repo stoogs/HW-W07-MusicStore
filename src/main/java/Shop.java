@@ -3,6 +3,7 @@ import Instruments.InstrumentType;
 import Interfaces.IStockChange;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Shop {
     ArrayList<IStockChange> stock;

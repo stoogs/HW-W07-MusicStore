@@ -8,6 +8,9 @@ import Inventory.InventoryType;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import static org.junit.Assert.assertEquals;
 
 public class InstrumentTest {
@@ -171,6 +174,7 @@ public class InstrumentTest {
         }
         System.out.println();
         assertEquals(4, shop.stock.size());
+
     }
 
     @Test
@@ -184,10 +188,26 @@ public class InstrumentTest {
 
 //    -------------------------------FUN TESTS---------------------
 
-//    @Test
-//    public void printShopStockByType() {
-//        seedShopStock();
-//        seedShopStock();
-//        shop.checkStockByType();
-//    }
+    @Test
+    public void printShopStockByNumberGuitars() {
+        seedShopStock();
+        seedShopStock();
+        seedShopStock();
+        int numGuitars =Collections.frequency( shop.stock, guitar);
+        System.out.println(numGuitars);
+        System.out.println(guitar.getType());
+        assertEquals(3, numGuitars);
+    }
+
+    @Test
+    public void printShopStockByNumberDrums() {
+        seedShopStock();
+        seedShopStock();
+        seedShopStock();
+        int numDrums =Collections.frequency( shop.stock, drums);
+        System.out.println(numDrums);
+        System.out.println((drums.getType()));
+        assertEquals(3, numDrums);
+    }
+
 }
