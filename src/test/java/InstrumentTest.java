@@ -12,7 +12,7 @@ public class InstrumentTest {
     Guitar guitar;
     Drums drums;
     Shop shop;
-    DrumSticks drumsticks;
+    DrumSticks drumSticks;
     GuitarStrings guitarStrings;
 
     @Before
@@ -21,7 +21,9 @@ public class InstrumentTest {
         drums = new Drums("Zinfandel", 1000, "Full Set");
         shop = new Shop();
         guitarStrings = new GuitarStrings("Wire Company", 10);
-        drumsticks = new DrumSticks("Chicken", 10);
+        drumSticks = new DrumSticks("Chicken", 10);
+
+
     }
 
     //-------------------------GUITAR---------------------------------------------
@@ -60,7 +62,7 @@ public class InstrumentTest {
     @Test
     public void canGetDrumsPrice() {
         int result = drums.calculateMarkup();
-        assertEquals(2000, result, 0);
+        assertEquals(2000, result);
     }
 
     @Test
@@ -75,7 +77,7 @@ public class InstrumentTest {
 
     //-------------------------GUITARSTRINGS---------------------------------------------
     @Test
-    public void testGuitaStringrManufacturer() {
+    public void testGuitaStrinrManufacturer() {
         assertEquals("Wire Company", guitarStrings.getManufacturer());
     }
 
@@ -95,23 +97,23 @@ public class InstrumentTest {
     }
    //-------------------------DRUMSTICKS------------------------------
    @Test
-   public void testDrumSticksrManufacturer() {
-       assertEquals("Chicken", drumsticks.getManufacturer());
+   public void testDrumSticksManufacturer() {
+       assertEquals("Chicken", drumSticks.getManufacturer());
    }
 
     @Test
     public void testDrumSticksNumberOfStrings() {
-        assertEquals(10, drumsticks.getCostPrice());
+        assertEquals(10, drumSticks.getCostPrice());
     }
 
     @Test
     public void testDrumSticksCostPrice() {
-        assertEquals(10, drumsticks.getCostPrice());
+        assertEquals(10, drumSticks.getCostPrice());
     }
 
     @Test
     public void calculateDrumSticksMarkup() {
-        assertEquals(20, drumsticks.calculateMarkup());
+        assertEquals(20, drumSticks.calculateMarkup());
     }
     //-------------------------SHOP STOCK TESTS------------------------------
     @Test
@@ -143,14 +145,12 @@ public class InstrumentTest {
         shop.addStock(guitarStrings);
         assertEquals(1, shop.stock.size());
     }
-    //TODO Why does instruments which implements IStockChange work
-    //TODO but inventory which doesn't implement IStockChange also works???
     @Test
     public void removeInventoryStock() {
         shop.addStock(guitarStrings);
-        shop.addStock(drumsticks);
+        shop.addStock(drumSticks);
         shop.addStock(guitarStrings);
-        shop.addStock(drumsticks);
+        shop.addStock(drumSticks);
         shop.removeStock();
         for (IStockChange banana : shop.stock) {
             System.out.println(banana);
