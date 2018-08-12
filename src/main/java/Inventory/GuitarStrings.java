@@ -6,8 +6,8 @@ public class GuitarStrings extends Inventory {
 //    protected int shopPrice;
 //    protected int costPrice;
 
-    public GuitarStrings(String manufacturer, int costPrice) {
-        super(manufacturer, costPrice);
+    public GuitarStrings(InventoryType type, String manufacturer, int costPrice) {
+        super(type, manufacturer, costPrice);
 //        this.shopPrice = shopPrice;
     }
 

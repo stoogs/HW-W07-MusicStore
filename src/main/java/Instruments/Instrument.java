@@ -7,10 +7,12 @@ public abstract class Instrument implements IPlay, IStockChange {
     private String manufacturer;
     private int costPrice;
     private int shopPrice;
+    private InstrumentType type;
 
-    public Instrument(String manufacturer, int costPrice) {
+    public Instrument(InstrumentType type, String manufacturer, int costPrice) {
         this.manufacturer = manufacturer;
         this.costPrice = costPrice;
+        this.type = type;
     }
 
     public String getManufacturer() {
@@ -23,6 +25,10 @@ public abstract class Instrument implements IPlay, IStockChange {
 
     public int getShopPrice() {
         return shopPrice;
+    }
+
+    public InstrumentType getType() {
+        return type;
     }
 
     public int calculateMarkup() {

@@ -3,11 +3,12 @@ package Inventory;
 import Interfaces.IStockChange;
 
 public abstract class Inventory implements IStockChange {
-    protected String manufacturer;
-    protected int costPrice;
-    protected int shopPrice;
+    private InventoryType type;
+    private String manufacturer;
+    private int costPrice;
+    private int shopPrice;
 
-    public Inventory(String manufacturer, int costPrice) {
+    public Inventory(InventoryType type,  String manufacturer, int costPrice) {
         this.manufacturer = manufacturer;
         this.costPrice = costPrice;
     }
@@ -32,7 +33,6 @@ public abstract class Inventory implements IStockChange {
     //IStockChange promises
     public void addStock(IStockChange instrument) {
     }
-
     public void removeStock() {
     }
 }

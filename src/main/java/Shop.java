@@ -1,3 +1,5 @@
+import Instruments.Guitar;
+import Instruments.InstrumentType;
 import Interfaces.IStockChange;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class Shop {
     public void removeStock() {
         stock.remove(0);
     }
+
     //Not Required as not implementing IStockChange. This feels wrong.
     //Should move dependency to Shop, from Abstract Instrument and abstract Inventory.
 //    public int calculateMarkup() {
@@ -29,13 +32,17 @@ public class Shop {
 
     public int checkProfitOfStock() {
         System.out.println(this.stock.size());
-        // for number in numbers ^_^
+        // for Type singular in arrayName ^_^
         int profit = 0;
         for (IStockChange banana : stock) {
             profit += banana.calculateMarkup();
             System.out.println(profit);
         }
-        return 0;
+        return profit;
     }
+
+//    public InstrumentType checkStockByType() {
+//    return InstrumentType.values();
+//    }
 
 }

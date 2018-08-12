@@ -1,8 +1,10 @@
 import Instruments.Drums;
 import Instruments.Guitar;
+import Instruments.InstrumentType;
 import Interfaces.IStockChange;
 import Inventory.DrumSticks;
 import Inventory.GuitarStrings;
+import Inventory.InventoryType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,16 +19,27 @@ public class InstrumentTest {
 
     @Before
     public void before() {
-        guitar = new Guitar("Les Paul", 250, 6);
-        drums = new Drums("Zinfandel", 1000, "Full Set");
+        guitar = new Guitar(InstrumentType.GUITAR,"Les Paul", 250, 6);
+        drums = new Drums(InstrumentType.DRUMS,"Zinfandel", 1000, "Full Set");
         shop = new Shop();
-        guitarStrings = new GuitarStrings("Wire Company", 10);
-        drumSticks = new DrumSticks("Chicken", 10);
+        guitarStrings = new GuitarStrings(InventoryType.GUITARSTRINGS,"Wire Company", 10);
+        drumSticks = new DrumSticks(InventoryType.DRUMSTICKS, "Chicken", 10);
+    }
 
-
+    public void seedShopStock() {
+        shop.addStock(guitarStrings);
+        shop.addStock(drumSticks);
+        shop.addStock(guitar);
+        shop.addStock(drums);
     }
 
     //-------------------------GUITAR---------------------------------------------
+
+    @Test
+    public void testEnumGuitar() {
+        assertEquals(InstrumentType.GUITAR, guitar.getType());
+    }
+
     @Test
     public void testGuitarManufacturer() {
         assertEquals("Les Paul", guitar.getManufacturer());
@@ -48,12 +61,18 @@ public class InstrumentTest {
         assertEquals("Drrriiinnnngggg", guitar.play());
     }
 
-    @Test
+    @Test //Jimi Hendrix guitar
     public void calculateMarkup() {
-        assertEquals(250, guitar.calculateMarkup(), 0);
+        assertEquals(24750, guitar.calculateMarkup(), 0);
     }
 
     //------------------------------------------DRUMS-------------------------------------
+
+    @Test
+    public void testEnumDrums() {
+        assertEquals(InstrumentType.DRUMS, drums.getType());
+    }
+
     @Test
     public void canDrumsGetName() {
         assertEquals("Zinfandel", drums.getManufacturer());
@@ -128,29 +147,8 @@ public class InstrumentTest {
     }
 
     @Test
-    public void removeStock() {
-        shop.addStock(guitar);
-        shop.addStock(drums);
-        shop.addStock(guitar);
-        shop.removeStock();
-        for (IStockChange banana : shop.stock) {
-            System.out.println(banana);
-        }
-        System.out.println();
-        assertEquals(2, shop.stock.size());
-    }
-
-    @Test
-    public void testAddToStockInventoryItems() {
-        shop.addStock(guitarStrings);
-        assertEquals(1, shop.stock.size());
-    }
-    @Test
-    public void removeInventoryStock() {
-        shop.addStock(guitarStrings);
-        shop.addStock(drumSticks);
-        shop.addStock(guitar);
-        shop.addStock(drums);
+    public void testRemoveStock() {
+        seedShopStock();
         shop.removeStock();
         for (IStockChange banana : shop.stock) {
             System.out.println(banana);
@@ -160,11 +158,36 @@ public class InstrumentTest {
     }
 
     @Test
+    public void testAddToStockInventoryItems() {
+        shop.addStock(guitarStrings);
+        shop.addStock(drumSticks);
+        assertEquals(2, shop.stock.size());
+    }
+    @Test
+    public void removeInventoryStock() {
+        seedShopStock();
+        for (IStockChange banana : shop.stock) {
+            System.out.println(banana);
+        }
+        System.out.println();
+        assertEquals(4, shop.stock.size());
+    }
+
+    @Test
     public void testCheckProfitOfStock(){
         shop.addStock(guitar);
         shop.addStock(drums);
         shop.addStock(guitarStrings);
         shop.addStock(drumSticks);
-        shop.checkProfitOfStock();
+        assertEquals(25770, shop.checkProfitOfStock());
     }
+
+//    -------------------------------FUN TESTS---------------------
+
+//    @Test
+//    public void printShopStockByType() {
+//        seedShopStock();
+//        seedShopStock();
+//        shop.checkStockByType();
+//    }
 }
