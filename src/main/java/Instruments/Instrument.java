@@ -2,6 +2,7 @@ package Instruments;
 
 import Interfaces.IPlay;
 import Interfaces.IStockChange;
+import Inventory.InventoryType;
 
 import java.util.Collections;
 
@@ -16,6 +17,15 @@ public abstract class Instrument implements IPlay, IStockChange {
         this.costPrice = costPrice;
         this.type = type;
     }
+
+    public boolean isOfType(InstrumentType it){
+        return this.type == it;
+    }
+
+    public boolean isOfType(InventoryType it){
+        return false;
+    }
+
 
     public String getManufacturer() {
         return manufacturer;

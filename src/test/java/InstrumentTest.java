@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class InstrumentTest {
     Guitar guitar;
     Drums drums;
-    Shop shop;
+    Shop shop, shop2;
     DrumSticks drumSticks;
     GuitarStrings guitarStrings;
 
@@ -27,6 +27,7 @@ public class InstrumentTest {
         shop = new Shop();
         guitarStrings = new GuitarStrings(InventoryType.GUITARSTRINGS,"Wire Company", 10);
         drumSticks = new DrumSticks(InventoryType.DRUMSTICKS, "Chicken", 10);
+        shop2 = new Shop();
     }
 
     public void seedShopStock() {
@@ -186,14 +187,15 @@ public class InstrumentTest {
         assertEquals(25770, shop.checkProfitOfStock());
     }
 
-//    -------------------------------FUN TESTS---------------------
-
+//    -------------------------------STOCK TESTS---------------------
+//TODO NOT HAPPY THESE ARE NOT FUNCTIONS IN SHOP. TRIED REFACTOR BUT FAILED.
     @Test
     public void printShopStockByNumberGuitars() {
         seedShopStock();
         seedShopStock();
         seedShopStock();
-        int numGuitars =Collections.frequency( shop.stock, guitar);
+        int numGuitars = Collections.frequency( shop.stock, guitar);
+        int ng = shop.numberOf(InstrumentType.GUITAR);
         System.out.println(numGuitars);
         System.out.println(guitar.getType());
         assertEquals(3, numGuitars);

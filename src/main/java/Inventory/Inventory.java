@@ -1,5 +1,6 @@
 package Inventory;
 
+import Instruments.InstrumentType;
 import Interfaces.IStockChange;
 
 public abstract class Inventory implements IStockChange {
@@ -11,6 +12,14 @@ public abstract class Inventory implements IStockChange {
     public Inventory(InventoryType type,  String manufacturer, int costPrice) {
         this.manufacturer = manufacturer;
         this.costPrice = costPrice;
+    }
+
+    public boolean isOfType(InstrumentType it){
+        return false;
+    }
+
+    public boolean isOfType(InventoryType it){
+        return this.type == it;
     }
 
     public String getManufacturer() {

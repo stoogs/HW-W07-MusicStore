@@ -1,6 +1,7 @@
 import Instruments.Guitar;
 import Instruments.InstrumentType;
 import Interfaces.IStockChange;
+import Inventory.InventoryType;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +23,26 @@ public class Shop {
 
     public void removeStock() {
         stock.remove(0);
+    }
+
+    public int numberOf(InstrumentType instType){
+        int count = 0;
+        for (IStockChange item : stock) {
+            if (item.isOfType(instType)){
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+    public int numberOf(InventoryType instType){
+        int count = 0;
+        for (IStockChange item : stock) {
+            if (item.isOfType(instType)){
+                count += 1;
+            }
+        }
+        return count;
     }
 
     //Not Required as not implementing IStockChange. This feels wrong.
